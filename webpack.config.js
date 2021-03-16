@@ -14,6 +14,9 @@ module.exports = {
       '.jsx'
     ]
   },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public') // preciso falar onde está o html da aplicação 
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html') // qual arquivo de template ele vai utilizar para gerar o html 
