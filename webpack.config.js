@@ -1,9 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const isDevelopment = process.env.NODE_ENV !== 'production'; // se a minha variável é diferente de prod quer dizer que eu estou em dev
+
 module.exports = {
-  mode: 'development',
-  devtool: 'eval-source-map',
+  mode: isDevelopment ? 'development' : 'production', 
+  devtool: isDevelopment ? 'eval-source-map' : 'source-map',
   entry: path.resolve(__dirname, 'src', 'index.jsx'), // qual é o arquivo principal da aplicação
   output: { // qual é o arquivo que eu vou gerar com o webpack
     path: path.resolve(__dirname, 'dist'),
