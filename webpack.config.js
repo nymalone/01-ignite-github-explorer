@@ -31,7 +31,12 @@ module.exports = {
         test: /\.jsx$/, // todos os arquivos tem que terminar com jsx
         exclude: /node_modules/, // não quero que faça o processo de conversão dos arquivos do node modules
         use: 'babel-loader', // é a integração entre o babel e o webpack
-      }
+      }, 
+      {
+        test: /\.css$/, 
+        exclude: /node_modules/, 
+        use: ['style-loader', 'css-loader'], 
+      },
     ]
   }
 }
