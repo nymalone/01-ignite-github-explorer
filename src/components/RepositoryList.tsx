@@ -3,8 +3,14 @@ import { RepositoryItem } from "./RepositoryItem";
 
 import "../styles/repositories.scss";
 
+interface Repository {
+  name: string;
+  description: string;
+  html_url: string
+}
+
 export function RepositoryList() {
-  const [repositories, setRepositories] = useState([]); // é legal começar o estado com uma variável do mesmo tipo daquela que eu vou armazenar
+  const [repositories, setRepositories] = useState<Repository[]>([]); // é legal começar o estado com uma variável do mesmo tipo daquela que eu vou armazenar
 
   useEffect(() => {
     fetch("https://api.github.com/orgs/rocketseat/repos")
